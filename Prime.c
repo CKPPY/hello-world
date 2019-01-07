@@ -1,22 +1,72 @@
-/*满足下列条件的自然数称为超级素数:该数本身,所有数字之和,所有数字之积以及所有数字的平方和都是素数.例如113就是一个超级素数.求[100,9999]之内:(1)超级素数的个数.(2)所有超级素数之和.(3)最大的超级素数.*/
-//2018/11/14 更新
-int sum_bit(int num) {
-  return 0;
-}
+  #include <stdio.h>
+int h(int p);
+int pfh(int q);
+int cj(int z);
+int ss(int r);
+int main()
+{
+	int a1,a2,a3,b1;
+	for(int i=100;i<10000;i++)
+	{
+		a1=h(i);
+		a2=pfh(i);
+		a3=cj(i);
+		b1=ss(i)+ss(a1)+ss(a2)+ss(a3);
+		if(b1==0)
+		printf("%d�ǳ�������\n",i);
+		else
+		continue;
+	}
 
-int multi_bit(int num) {
-  return 0;
 }
-
-int square_sum_bit(int num) {
-  return 0;
+int h(int p)
+{
+	int a=p%10;
+	int b=p/10%10;
+	int c=p/100%10;
+	int d=p/1000;
+	int s=a+b+c+d;
+	return s;
 }
-
-bool isprime(int num) {
-  return false;
+int pfh(int q)
+{
+	int a=q%10;
+	int b=q/10%10;
+	int c=q/100%10;
+	int d=q/1000;
+	int t=a*a+b*b+c*c+d*d;
+	return t;
 }
-
-int main() {
-  if(isprime(113)&&isprime(sum_bit(113))&&isprime(multi_bit(113))&&isprime(square_sum_bit(113)))
-    //to do sth
+int cj(int z)
+{
+	int w;
+	int a=z%10;
+	int b=z/10%10;
+	int c=z/100%10;
+	int d=z/1000;
+	if(d!=0)w=a*b*c*d;
+	else w=a*b*c;
+	return w;	
+}
+int ss(int r)
+{
+	int a[9999],m,x=1,y=0;
+	if(r==0)
+	return x;
+	for(int i=0;i<r-1;i++)
+	{
+		a[i]=i+2;
+		m=r%a[i];
+		if(a[i]==r)
+		{
+			return y;
+			break;
+		}
+		if(m==0)
+		{
+			return x;
+			break;
+		}
+		
+	}
 }
